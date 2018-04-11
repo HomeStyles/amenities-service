@@ -65,7 +65,3 @@ let homes = new Home({
     email: 'Branson.Kautzer45@gmail.com' 
   }
 });
-
-// homes.save((err) => {
-// 		if (err) throw err;
-// });
