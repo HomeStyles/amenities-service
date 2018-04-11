@@ -8,10 +8,11 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "test": "jest"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "yarn": "^1.5.1"
   }
 }
