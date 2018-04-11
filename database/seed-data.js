@@ -1,9 +1,9 @@
 const faker = require('faker');
-const db = require('./database/index');
+const {Home} = require('./index.js');
 
 let arr = [];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 2; i < 102; i++) {
   arr.push({
   	_id: i,
   	homeName: faker.lorem.sentence(),
@@ -35,6 +35,7 @@ for (let i = 0; i < 100; i++) {
 		},
   });
 }
-console.log(arr);
 
-// db.homes.insertMany(arr);
+Home.insertMany(arr, (err, docs) => {
+	if (err) return console.error(err);
+});
