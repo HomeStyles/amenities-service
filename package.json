@@ -1,0 +1,20 @@
+{
+  "name": "amenities-service",
+  "version": "",
+  "description": "Amenities module for Airbnb front-end capstone",
+  "author": "Amanda Bullington",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^22.4.3",
+    "yarn": "^1.5.1"
+  }
+}
