@@ -12,6 +12,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^4.19.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^22.4.3",
     "yarn": "^1.5.1"

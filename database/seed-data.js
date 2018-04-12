@@ -27,11 +27,11 @@ for (let i = 2; i < 102; i++) {
 			totalBaths: (Math.floor(Math.random() * (3 - 1)) + 1),
 		},
 		host: {
-	  	hostId: faker.random.number(),
-	  	firstName: faker.name.firstName(),
-	  	lastName: faker.name.lastName(),
-	  	image: faker.image.avatar(),
-	  	email: faker.internet.email(),
+		hostId: faker.random.number(),
+		firstName: faker.name.firstName(),
+		lastName: faker.name.lastName(),
+		image: faker.image.avatar(),
+		email: faker.internet.email(),
 		},
   });
 }
