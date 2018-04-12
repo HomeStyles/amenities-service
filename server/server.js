@@ -3,12 +3,12 @@ const bodyParser = require('body-parser');
 const port = 3002;
 const app = express();
 
-app.use(express.static(__dirname + '../client/dist'));
+app.use(express.static(__dirname + '/../client/dist'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/', (req, res) => {
+app.get('/amenities', (req, res) => {
   res.send('GET request received');
 })
 
