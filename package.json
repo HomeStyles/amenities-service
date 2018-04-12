@@ -1,20 +1,32 @@
 {
   "name": "amenities-service",
-  "version": "",
+  "version": "1.0.0",
   "description": "Amenities module for Airbnb front-end capstone",
   "author": "Amanda Bullington",
   "license": "UNLICENSED",
+  "main": "server.js",
+  "private": true,
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "test": "jest"
+    "start": "nodemon server/server.js",
+    "test": "jest",
+    "dev:react": "webpack -d --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "babel-loader": "^7.1.4",
+    "nodemon": "^1.17.3",
+    "path": "^0.12.7",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^22.4.3",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
     "yarn": "^1.5.1"
   }
 }
