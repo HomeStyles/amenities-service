@@ -9,3 +9,9 @@ test('total bedrooms are at least 1', () => {
 		expect(arr[i].rooms.totalBedrooms).toBeGreaterThanOrEqual(1);
 	}
 });
+
+//correct type of data
+//more than bedrooms - check to see if there is an object with this shape, these properties
+//escaping
+//successful fail and fetch for server
+//prop types for things rendering in React
