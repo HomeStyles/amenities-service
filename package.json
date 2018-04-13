@@ -16,6 +16,7 @@
     "dev": "webpack-dev-server --hot --inline"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-loader": "^7.1.4",
     "express": "^4.16.3",
     "nodemon": "^1.17.3",
