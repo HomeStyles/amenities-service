@@ -30,6 +30,11 @@ const Text = Header.extend`
   line-height: 1.43;
 `;
 
+const BlueLink = Text.extend`
+  font-weight: 400;
+  color: #008489;
+`;
+
 const Box = styled.div`
   float: left;
   padding: 5px 10px 5px 10px;
@@ -40,6 +45,11 @@ const Box = styled.div`
   width: 300px;
   border: 1px solid #c4c4c4;
   border-radius: 2px;
+`;
+
+const Stats = Box.extend`
+  border: none;
+  margin-bottom: 10px;
 `;
 
 const RoundPhoto = styled.div`
@@ -93,19 +103,44 @@ class Description extends React.Component {
         <UppercaseText>ENTIRE APARTMENT</UppercaseText>
         <Header><h2>{this.state.homeName}</h2></Header>
         <RoundPhoto><img style={{borderRadius: '50%'}} src={this.state.host.image}/></RoundPhoto>
-        <Text>{this.state.location}<br></br>{this.state.rooms.totalBedrooms} bedrooms, {this.state.rooms.totalBeds} beds, {this.state.rooms.totalBaths} baths
+        <Text>{this.state.location}<br></br>
         </Text>
+        <Stats>
+          <Text>
+            {this.state.rooms.totalBedrooms} bedrooms, {this.state.rooms.totalBeds} beds, {this.state.rooms.totalBaths} baths
+          </Text>
+        </Stats>
         <Box>
           <Text><strong>This home is on people’s minds.</strong><br></br>It's been viewed {this.state.viewsThisWeek}+ times in the past week.
           </Text>
         </Box>
         <Text>
           {this.state.description}<br></br>
-          <h4>Amenities</h4>Kitchen, wifi, iron<br></br>
+        </Text>
+        <br></br>
+        <BlueLink>
+          Read more about the space ^
+          <br></br>
+          <br></br>
+          Contact host
+        </BlueLink>
+        <Text>
+          <h4>Amenities</h4>
+          Kitchen, wifi, iron
+        </Text>
+        <br></br>
+        <BlueLink>
+          Show all 7 amenities
+        </BlueLink>
+        <Text>
           <h4>Sleeping arrangements</h4>
           <Box>1 double bed, 1 sofa bed</Box>
-          <h4>House Rules</h4>Pets are not allowed. Check in time is {this.state.checkIn}. Check out by {this.state.checkOut}.
+          <h4>House Rules</h4>Not suitable for pets<br></br>No parties or events<br></br>Check-in is anytime after {this.state.checkIn}<br></br>Check out by {this.state.checkOut}
         </Text>
+        <br></br>
+        <BlueLink>
+          Read all Rules ^
+        </BlueLink>
       </div>
     );
   }
