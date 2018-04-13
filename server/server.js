@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/amenities', (req, res) => {
   res.send('GET request received');
-})
+});
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(`Listening on port ${port}`);
 });
