@@ -3,19 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
-const Box = styled.div`
-  float: left;
-  padding: 5px 10px 5px 10px;
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  margin-right: 500px;
-  width: 300px;
-  border: 1px solid #c4c4c4;
-  border-radius: 2px;
-`;
-
-const BoldText = styled.div`
+const UppercaseText = styled.div`
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -26,7 +14,7 @@ const BoldText = styled.div`
   color: #a02f18;
 `;
 
-const Name = styled.div`
+const Header = styled.div`
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 17px;
   font-weight: 300;
@@ -36,14 +24,33 @@ const Name = styled.div`
   color: #484848;
 `;
 
-const Text = styled.div`
+const Text = Header.extend`
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
-  font-weight: 300;
-  letter-spacing: 0.2px;
   line-height: 1.43;
-  color: #484848;
 `;
+
+const Box = styled.div`
+  float: left;
+  padding: 5px 10px 5px 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-right: 1000px;
+  width: 300px;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+`;
+
+const RoundPhoto = styled.div`
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+`;
+
 
 class Description extends React.Component {
   constructor() {
@@ -74,7 +81,7 @@ class Description extends React.Component {
         hostId: 123,
         firstName: 'Jack',
         lastName: 'Sparrow',
-        image: '',
+        image: 'https://s3.amazonaws.com/uifaces/faces/twitter/nastya_mane/128.jpg',
         email: 'jacksparrow@123.com',
       },
     };
@@ -83,30 +90,21 @@ class Description extends React.Component {
   render() {
     return (
       <div>
-        <BoldText>
-          <div className="houseType">ENTIRE APARTMENT</div>
-        </BoldText>
-        <Name>
-          <div className="homeName"><h2>{this.state.homeName}</h2></div>
-        </Name>
-        <Text>
-          <div className="location">{this.state.location}</div>
-          <div className="stats">{this.state.rooms.totalBedrooms} bedrooms, {this.state.rooms.totalBeds} beds, {this.state.rooms.totalBaths} baths</div>
+        <UppercaseText>ENTIRE APARTMENT</UppercaseText>
+        <Header><h2>{this.state.homeName}</h2></Header>
+        <RoundPhoto><img style={{borderRadius: '50%'}} src={this.state.host.image}/></RoundPhoto>
+        <Text>{this.state.location}<br></br>{this.state.rooms.totalBedrooms} bedrooms, {this.state.rooms.totalBeds} beds, {this.state.rooms.totalBaths} baths
         </Text>
         <Box>
-          <Text>
-            <div className="views">This home is top of mind. Over {this.state.viewsThisWeek} people have viewed it in the past week.</div>
+          <Text><strong>This home is on people’s minds.</strong><br></br>It's been viewed {this.state.viewsThisWeek}+ times in the past week.
           </Text>
         </Box>
         <Text>
-          <div className="description">{this.state.description}</div>
-          <div className="amenities"><h4>Amenities</h4>Kitchen, wifi, iron</div>
-          <div className="sleepingArrangements"><h4>Sleeping arrangements</h4>
-            <Box>
-            1 double bed, 1 sofa bed
-            </Box>
-          </div>
-          <div className="houseRules"><h4>House Rules</h4>Pets are not allowed. Check in time is {this.state.checkIn}. Check out by {this.state.checkOut}.</div>
+          {this.state.description}<br></br>
+          <h4>Amenities</h4>Kitchen, wifi, iron<br></br>
+          <h4>Sleeping arrangements</h4>
+          <Box>1 double bed, 1 sofa bed</Box>
+          <h4>House Rules</h4>Pets are not allowed. Check in time is {this.state.checkIn}. Check out by {this.state.checkOut}.
         </Text>
       </div>
     );
