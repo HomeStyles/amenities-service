@@ -38,7 +38,7 @@ const BlueLink = Text.extend`
 const Box = styled.div`
   float: left;
   padding: 5px 10px 5px 10px;
-  margin-left: 10px;
+  margin-left: 5px;
   margin-top: 10px;
   margin-bottom: 30px;
   margin-right: 1000px;
@@ -67,6 +67,7 @@ class Description extends React.Component {
     super();
 
     this.state = {
+      homes: [],
       homeName: 'The best house',
       description: 'Really, the greatest house',
       location: 'Norway',
@@ -95,6 +96,22 @@ class Description extends React.Component {
         email: 'jacksparrow@123.com',
       },
     };
+  }
+
+  fetchHomes() {
+    axios.get('http://127.0.0.1:3002/amenities')
+      .then((response) => {
+        this.setState({
+          homes: response.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  componentDidMount() {
+    this.fetchHomes();
   }
 
   render() {

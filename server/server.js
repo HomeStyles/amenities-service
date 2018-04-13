@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/amenities', (req, res) => {
   Home.find()
     .then((homes) => {
+      console.log(homes);
       res.send(homes);
     })
     .catch((err) => {
