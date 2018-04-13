@@ -23,7 +23,7 @@ const BoldText = styled.div`
   line-height: 16px;
   text-transform: uppercase;
   color: #a02f18;
-`
+`;
 
 const Name = styled.div`
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
@@ -42,7 +42,7 @@ const Text = styled.div`
   letter-spacing: 0.2px;
   line-height: 1.43;
   color: #484848;
-`
+`;
 
 class Description extends React.Component {
   render() {
@@ -55,27 +55,27 @@ class Description extends React.Component {
           <div className="homeName"><h2>The best house</h2></div>
         </Name>
         <Text>
-        <div className="location">Norway</div>
-        <div className="stats">4 guests, Studio, 2 beds</div>
+          <div className="location">Norway</div>
+          <div className="stats">4 guests, Studio, 2 beds</div>
         </Text>
-          <Box>
-            <Text>
-              <div className="views">200 this week</div>
-            </Text>
-          </Box>
+        <Box>
+          <Text>
+            <div className="views">200 this week</div>
+          </Text>
+        </Box>
         <Text>
-        <div className="description">Really, the greatest house</div>
-        <div className="amenities"><h4>Amenities</h4>Kitchen, wifi, iron</div>
-        <div className="sleepingArrangements"><h4>Sleeping arrangements</h4>
-          <Box>
+          <div className="description">Really, the greatest house</div>
+          <div className="amenities"><h4>Amenities</h4>Kitchen, wifi, iron</div>
+          <div className="sleepingArrangements"><h4>Sleeping arrangements</h4>
+            <Box>
             1 double bed, 1 sofa bed
-          </Box>
-        </div>
-        <div className="houseRules"><h4>House Rules</h4>No parties.</div>
+            </Box>
+          </div>
+          <div className="houseRules"><h4>House Rules</h4>No parties.</div>
         </Text>
       </div>
-    )
+    );
   }
-};
+}
   
 ReactDOM.render(<Description />, document.getElementById('description'));
