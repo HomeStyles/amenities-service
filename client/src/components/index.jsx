@@ -67,7 +67,7 @@ class Description extends React.Component {
     super();
 
     this.state = {
-      homes: [],
+      home: {},
       homeName: 'The best house',
       description: 'Really, the greatest house',
       location: 'Norway',
@@ -99,14 +99,16 @@ class Description extends React.Component {
   }
 
   fetchHomes() {
-    axios.get('http://127.0.0.1:3002/amenities')
+    axios.get('http://127.0.0.1:3002/_id/:_id')
       .then((response) => {
+        console.log(response);
         this.setState({
-          homes: response.data,
+          home: response,
         });
+        console.log('home after set state', this.state.home);
       })
       .catch((err) => {
-        console.log(err);
+        throw err;
       });
   }
 

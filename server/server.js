@@ -9,11 +9,11 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/amenities', (req, res) => {
-  Home.find()
-    .then((homes) => {
-      console.log(homes);
-      res.send(homes);
+app.get('/_id/:_id', (req, res) => {
+  let query = req.params;
+  Home.find(query)
+    .then((home) => {
+      res.send(home);
     })
     .catch((err) => {
       if (err) {
