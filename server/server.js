@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/_id/:_id', (req, res) => {
+app.get('/amenities/:homeId', (req, res) => { //need to restructure data to have home ID (object ID is separate)
   let query = req.params;
   Home.find(query)
     .then((home) => {

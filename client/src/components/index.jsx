@@ -99,7 +99,7 @@ class Description extends React.Component {
   }
 
   fetchHomes() {
-    axios.get('http://127.0.0.1:3002/_id/:_id')
+    axios.get('http://127.0.0.1:3002/amenities/homeId')
       .then((response) => {
         console.log(response);
         this.setState({

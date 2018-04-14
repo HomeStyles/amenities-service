@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/airbnb');
 
 const homeSchema = new mongoose.Schema({
-  _id: Number,
+  homeId: Number, 
   homeName: String,
   description: String,
   location: String,

@@ -4,7 +4,7 @@ let arr = [];
 
 for (let i = 2; i < 102; i++) {
   arr.push({
-    _id: i,
+    homeId: i,
     homeName: faker.lorem.sentence(),
     description: faker.lorem.paragraphs(),
     location: faker.address.city(),
