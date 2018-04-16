@@ -67,45 +67,25 @@ class Description extends React.Component {
     super();
 
     this.state = {
+      homeId: 1,
       home: {},
-      homeName: 'The best house',
-      description: 'Really, the greatest house',
-      location: 'Norway',
-      viewsThisWeek: 200,
-      petsAllowed: false,
-      checkOut: '11AM',
-      checkIn: '2PM',
-      amenities: {
-        wifi: true,
-        hotWater: false,
-        shampoo: false,
-        towels: true,
-        sheets: true,
-        kitchen: false,
-      },
-      rooms: {
-        totalBedrooms: 4,
-        totalBeds: 4,
-        totalBaths: 2,
-      },
-      host: {
-        hostId: 123,
-        firstName: 'Jack',
-        lastName: 'Sparrow',
-        image: 'https://s3.amazonaws.com/uifaces/faces/twitter/nastya_mane/128.jpg',
-        email: 'jacksparrow@123.com',
-      },
+      amenities: {},
+      rooms: {},
+      host: {},
     };
   }
 
   fetchHomes() {
-    axios.get('http://127.0.0.1:3002/amenities/homeId')
+    let app = this;
+    axios.get(`http://127.0.0.1:3002/amenities/${app.state.homeId}`)
       .then((response) => {
-        console.log(response);
         this.setState({
-          home: response,
+          home: response.data,
+          amenities: response.data.amenities,
+          rooms: response.data.rooms,
+          host: response.data.host,
         });
-        console.log('home after set state', this.state.home);
+        console.log('state set correctly', this.state.host);
       })
       .catch((err) => {
         throw err;
@@ -120,9 +100,9 @@ class Description extends React.Component {
     return (
       <div>
         <UppercaseText>ENTIRE APARTMENT</UppercaseText>
-        <Header><h2>{this.state.homeName}</h2></Header>
+        <Header><h2>{this.state.home.homeName}</h2></Header>
         <RoundPhoto><img style={{borderRadius: '50%'}} src={this.state.host.image}/></RoundPhoto>
-        <Text>{this.state.location}<br></br>
+        <Text>{this.state.home.location}<br></br>
         </Text>
         <Stats>
           <Text>
@@ -130,11 +110,11 @@ class Description extends React.Component {
           </Text>
         </Stats>
         <Box>
-          <Text><strong>This home is on people’s minds.</strong><br></br>It's been viewed {this.state.viewsThisWeek}+ times in the past week.
+          <Text><strong>This home is on people’s minds.</strong><br></br>It's been viewed {this.state.home.viewsThisWeek}+ times in the past week.
           </Text>
         </Box>
         <Text>
-          {this.state.description}<br></br>
+          {this.state.home.description}<br></br>
         </Text>
         <br></br>
         <BlueLink>
@@ -154,7 +134,7 @@ class Description extends React.Component {
         <Text>
           <h4>Sleeping arrangements</h4>
           <Box>1 double bed, 1 sofa bed</Box>
-          <h4>House Rules</h4>Not suitable for pets<br></br>No parties or events<br></br>Check-in is anytime after {this.state.checkIn}<br></br>Check out by {this.state.checkOut}
+          <h4>House Rules</h4>Not suitable for pets<br></br>No parties or events<br></br>Check-in is anytime after {this.state.home.checkIn}<br></br>Check out by {this.state.home.checkOut}
         </Text>
         <br></br>
         <BlueLink>

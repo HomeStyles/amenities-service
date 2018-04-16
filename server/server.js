@@ -13,7 +13,7 @@ app.get('/amenities/:homeId', (req, res) => { //need to restructure data to have
   let query = req.params;
   Home.find(query)
     .then((home) => {
-      res.send(home);
+      res.send(home[0]);
     })
     .catch((err) => {
       if (err) {
