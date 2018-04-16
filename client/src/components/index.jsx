@@ -91,6 +91,22 @@ class Description extends React.Component {
         throw err;
       });
   }
+  
+  createHome() {
+    //const data = new FormData(event.target);
+    axios.post('http://127.0.0.1:3002/amenities/form', {
+      home: {},
+      amenities: {},
+      rooms: {},
+      host: {},
+    })
+      .then((response) => {
+        console.log('this is the response', response);
+      })
+      .catch((error) => {
+        throw err;
+      });
+  }
 
   componentDidMount() {
     this.fetchHomes();

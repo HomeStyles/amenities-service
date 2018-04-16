@@ -22,6 +22,12 @@ app.get('/amenities/:homeId', (req, res) => { //need to restructure data to have
     });
 });
 
+app.post('/amenities/form', (req, res) => {
+  let entry = req.body;
+  Home.create(req.body);
+  res.send('New entry added to the database');
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
