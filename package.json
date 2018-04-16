@@ -16,13 +16,15 @@
     "dev": "webpack-dev-server --hot --inline"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-loader": "^7.1.4",
     "express": "^4.16.3",
     "nodemon": "^1.17.3",
     "path": "^0.12.7",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "styled-components": "^3.2.5"
+    "styled-components": "^3.2.5",
+    "travis": "^0.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -3,9 +3,9 @@ const {Home} = require('./index.js');
 
 let arr = [];
 
-for (let i = 2; i < 102; i++) {
+for (let i = 1; i < 101; i++) {
   arr.push({
-    _id: i,
+    homeId: i,
     homeName: faker.lorem.sentence(),
     description: faker.lorem.paragraphs(),
     location: faker.address.city(),
