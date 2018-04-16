@@ -5,8 +5,8 @@ let arr = [];
 
 for (let i = 2; i < 102; i++) {
   arr.push({
-  	_id: i,
-  	homeName: faker.lorem.sentence(),
+    _id: i,
+    homeName: faker.lorem.sentence(),
     description: faker.lorem.paragraphs(),
     location: faker.address.city(),
     viewsThisWeek: faker.random.number(),
@@ -37,5 +37,7 @@ for (let i = 2; i < 102; i++) {
 }
 
 Home.insertMany(arr, (err, docs) => {
-  if (err) return console.error(err);
+  if (err) {
+    return console.error(err);
+  }
 });
