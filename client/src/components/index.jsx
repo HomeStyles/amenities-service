@@ -2,65 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import axios from 'axios';
+import Modal from 'react-modal';
+import {UppercaseText, Header, RoundPhoto, Text, BlueLink, Box, Stats} from '../style.js';
 
-const UppercaseText = styled.div`
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  line-height: 16px;
-  text-transform: uppercase;
-  color: #a02f18;
-`;
-
-const Header = styled.div`
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-  font-size: 17px;
-  font-weight: 300;
-  letter-spacing: 0.2px;
-  line-height: 22px;
-  text-transform: none;
-  color: #484848;
-`;
-
-const Text = Header.extend`
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 1.43;
-`;
-
-const BlueLink = Text.extend`
-  font-weight: 400;
-  color: #008489;
-`;
-
-const Box = styled.div`
-  float: left;
-  padding: 5px 10px 5px 10px;
-  margin-left: 5px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  margin-right: 1000px;
-  width: 300px;
-  border: 1px solid #c4c4c4;
-  border-radius: 2px;
-`;
-
-const Stats = Box.extend`
-  border: none;
-  margin-bottom: 10px;
-`;
-
-const RoundPhoto = styled.div`
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  width: 50%;
-  height: 50%;
-  border-radius: 50%;
-`;
-
+Modal.setAppElement('body');
 
 class Description extends React.Component {
   constructor() {
@@ -72,8 +17,12 @@ class Description extends React.Component {
       amenities: {},
       rooms: {},
       host: {},
+      modalIsOpen: false,
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
+  
 
   fetchHomes() {
     let app = this;
@@ -93,7 +42,6 @@ class Description extends React.Component {
   }
   
   createHome() {
-    //const data = new FormData(event.target);
     axios.post('http://127.0.0.1:3002/amenities/form', {
       home: {},
       amenities: {},
@@ -106,6 +54,14 @@ class Description extends React.Component {
       .catch((error) => {
         throw err;
       });
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
   }
 
   componentDidMount() {
@@ -133,10 +89,16 @@ class Description extends React.Component {
           {this.state.home.description}<br></br>
         </Text>
         <br></br>
-        <BlueLink>
-          Read more about the space ^
-          <br></br>
-          <br></br>
+        <BlueLink onClick={this.openModal}>Read more about the space ^</BlueLink>
+        <Modal 
+          isOpen={this.state.modalIsOpen}
+        >
+            this is my modal test
+          <button onClick={this.closeModal}>close</button>
+        </Modal>
+        <br></br>
+        <br></br>
+        <BlueLink onClick={this.openModal}>
           Contact host
         </BlueLink>
         <Text>
