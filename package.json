@@ -15,6 +15,10 @@
     "dev:react": "webpack -d --watch",
     "dev": "webpack-dev-server --hot --inline"
   },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "babel-loader": "^7.1.4",
