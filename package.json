@@ -11,7 +11,7 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/client/setupTests.js"
-   },
+  },
   "scripts": {
     "start": "nodemon server/server.js",
     "test": "jest",
@@ -48,6 +48,7 @@
     "enzyme": "^3.3.0",
     "eslint": "^4.19.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest-styled-components": "^5.0.1",
     "node-sass": "^4.8.3",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
