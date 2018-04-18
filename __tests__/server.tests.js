@@ -1,6 +1,5 @@
 const request = require('supertest');
 const app = require('../server/app.js');
-const {Home} = require('../database/index');
 
 describe('GET request should return 200 status code', () => {
   test('It should send a response to GET method', (done) => {
