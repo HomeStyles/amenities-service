@@ -1,4 +1,4 @@
-const {arr} = require('./sample-data.js');
+const {arr} = require('../__mocks__/sample-data.js');
 
 test('the array has 100 items', () => {
   expect(arr.length).toBe(100);
