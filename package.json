@@ -12,6 +12,8 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "dev:react": "webpack -d --watch",
     "dev": "webpack-dev-server --hot --inline"
   },
