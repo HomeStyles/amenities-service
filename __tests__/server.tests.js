@@ -1,4 +1,5 @@
 const request = require('supertest');
+const express = require('express');
 const app = require('../server/app.js');
 
 describe('GET request should return 200 status code', () => {
