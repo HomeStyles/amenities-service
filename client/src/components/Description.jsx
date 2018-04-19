@@ -24,8 +24,8 @@ class Description extends React.Component {
     this.openModal2 = this.openModal2.bind(this);
     this.closeModal1 = this.closeModal1.bind(this);
     this.closeModal2 = this.closeModal2.bind(this);
+    this.createHome = this.createHome.bind(this);
   }
-  
 
   fetchHomes(id) {
     axios.get(`http://127.0.0.1:3002/amenities/${id}`)

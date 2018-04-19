@@ -5,6 +5,7 @@ import Description from '../client/src/components/Description.jsx';
 import Modal from 'react-modal';
 import {UppercaseText, Header, RoundPhoto, Text, BlueLink, Box, Stats} from '../client/src/style.js';
 import 'jest-styled-components';
+import axios from 'axios';
 
 describe('app rendered', () => { 
   it('Description should render without crashing', () => {
@@ -37,11 +38,23 @@ describe('<Modal /> component', () => {
     modal2.simulate('click');
     expect(wrapper.state('modal1IsOpen')).toEqual(false);
   });
-  it('should render a modal when blue link is clicked', () => {
+  it('should open modal when a blue link is clicked', () => {
     const openModal1 = jest.fn();
-    const wrapper = shallow(<BlueLink onClick={openModal1}/>);
-    expect(wrapper).toMatchSnapshot();
-    wrapper.simulate('click');
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = shallow(<Description />);
+    const link = shallow(<BlueLink onClick={openModal1}>Contact host</BlueLink>);
+    expect(link).toMatchSnapshot();
+    link.simulate('click');
+    expect(openModal1).toHaveBeenCalled();
   });
+});
+
+test('makes an API call', () => {
+  const spy = jest.spyOn(Description.prototype, 'createHome');
+  const description = shallow(<Description />);
+  description.instance().createHome();
+
+  expect(spy).toHaveBeenCalled();
+
+  spy.mockReset();
+  spy.mockRestore();
 });
