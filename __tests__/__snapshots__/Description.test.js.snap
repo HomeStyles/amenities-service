@@ -1,5 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Modal /> component should render a modal when blue link is clicked 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div
+    onClick={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-bxivhb caWaAu",
+      "onClick": [MockFunction],
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-bxivhb caWaAu",
+        "onClick": [MockFunction],
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<Modal /> component should render a modal when blue link is clicked 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div
+    onClick={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-bxivhb caWaAu",
+      "onClick": [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+      },
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-bxivhb caWaAu",
+        "onClick": [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
 exports[`links render in blue 1`] = `
 .c0 {
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
