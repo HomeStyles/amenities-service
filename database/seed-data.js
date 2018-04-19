@@ -1,4 +1,5 @@
 const faker = require('faker');
+const mongoose = require('mongoose');
 const {Home} = require('./index.js');
 
 let arr = [];
@@ -36,8 +37,10 @@ for (let i = 1; i < 101; i++) {
   });
 }
 
-Home.insertMany(arr, (err, docs) => {
-  if (err) {
-    return console.error(err);
-  }
-});
+const insertData = () => {
+  Home.insertMany(arr)
+    .then(() => mongoose.disconnect())
+    .catch((err) => console.error(err));
+};
+
+insertData();

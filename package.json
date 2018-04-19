@@ -14,15 +14,10 @@
   },
   "scripts": {
     "start": "nodemon server/server.js",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
     "dev:react": "webpack -d --watch",
     "dev": "webpack-dev-server --hot --inline"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
   },
   "dependencies": {
     "axios": "^0.18.0",
