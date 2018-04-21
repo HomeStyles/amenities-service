@@ -1,9 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
 import axios from 'axios';
-import Modal from 'react-modal';
-import {UppercaseText, Header, RoundPhoto, Text, BlueLink, Box, Stats, GrayDivider} from '../style.js';
 import Rules from './Rules.jsx';
 import Sleeping from './Sleeping.jsx';
 import Amenities from './Amenities.jsx';

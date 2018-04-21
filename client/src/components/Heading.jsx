@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import {UppercaseText, RoundPhoto, Header, Stats, Box, Text, BlueLink} from '../style.js';
 
 const Heading = (props) => {

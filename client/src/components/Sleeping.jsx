@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import {Text, Box, GrayDivider} from '../style.js';
 
 const Sleeping = () => {
