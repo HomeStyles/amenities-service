@@ -20,7 +20,8 @@ class App extends React.Component {
       amenities: {},
       rooms: {},
       host: {},
-      modalIsOpen: false
+      modal1IsOpen: false,
+      modal2IsOpen: false
     };
   }
 
@@ -33,19 +34,26 @@ class App extends React.Component {
           rooms: response.data.rooms,
           host: response.data.host,
         });
-        console.log('state set correctly', this.state.host);
       })
       .catch((err) => {
         throw err;
       });
   }
 
-  openModal() {
-    this.setState({modalIsOpen: true});
+  openModal1() {
+    this.setState({modal1IsOpen: true});
+  }
+  
+  closeModal1() {
+    this.setState({modal1IsOpen: false});
+  }
+  
+  openModal2() {
+    this.setState({modal2IsOpen: true});
   }
 
-  closeModal() {
-    this.setState({modalIsOpen: false});
+  closeModal2() {
+    this.setState({modal2IsOpen: false});
   }
 
   componentDidMount() {
@@ -57,38 +65,21 @@ class App extends React.Component {
     return (
       <div>
         <Heading home={this.state.home} host={this.state.host} rooms={this.state.rooms} />
-        <Text>
-          {this.state.home.description}<br></br>
-        </Text>
-        <br></br>
-        <BlueLink>Read more about the space ^</BlueLink>
-        <br></br>
-        <br></br>
-        <BlueLink onClick={this.openModal1}>
-          Contact host
-        </BlueLink>
-        <GrayDivider></GrayDivider>
-        <Modal isOpen={this.state.modal1IsOpen}>
-          <button onClick={this.closeModal1}>close</button>
-          <Header><h2>Contact {this.state.host.firstName}</h2></Header>
-          <Text>
-          Once you send a message, {this.state.host.firstName} can invite you to book their home.<br></br><br></br>
-            Make sure you share the following:<br></br><br></br>
-            <li>Tell {this.state.host.firstName} a little about yourself</li>
-            <li>What brings you to {this.state.home.location}? Who’s joining you?</li>
-            <li>What do you love about this listing? Mention it!</li>
-          </Text>
-        </Modal>
+        <Description
+          home={this.state.home} 
+          host={this.state.host}
+          isOpen1={this.state.modal1IsOpen}
+          openModal1={() => this.openModal1.bind(this)} 
+          closeModal1={() => this.closeModal1.bind(this)} 
+        />
         <Amenities 
           amenities={this.state.amenities} 
-          isOpen={this.state.modalIsOpen}
-          openModal={() => this.openModal.bind(this)} 
-          closeModal={() => this.closeModal.bind(this)} 
+          isOpen2={this.state.modal2IsOpen}
+          openModal2={() => this.openModal2.bind(this)} 
+          closeModal2={() => this.closeModal2.bind(this)} 
         />
         <Sleeping />
-        <GrayDivider></GrayDivider>
         <Rules rules={this.state.home} />
-        <GrayDivider></GrayDivider>
       </div>
     );
   }

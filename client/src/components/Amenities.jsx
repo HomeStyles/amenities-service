@@ -13,12 +13,12 @@ const Amenities = (props) => {
           Kitchen, wifi, iron
       </Text>
       <br></br>
-      <BlueLink onClick={props.openModal()}>
+      <BlueLink onClick={props.openModal2()}>
           Show all 7 amenities
       </BlueLink>
       <GrayDivider></GrayDivider>
-      <Modal isOpen={props.isOpen}>
-        <button onClick={props.closeModal()}>close</button>
+      <Modal isOpen={props.isOpen2}>
+        <button onClick={props.closeModal2()}>close</button>
         <Header><h2>Amenities</h2></Header>
         <Text>
           <strong>Basic</strong>

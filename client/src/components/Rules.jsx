@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Text, BlueLink} from '../style.js';
+import {Text, BlueLink, GrayDivider} from '../style.js';
 
 const Rules = (props) => {
   return (  
@@ -12,6 +12,7 @@ const Rules = (props) => {
       <BlueLink>
         Read all Rules ^
       </BlueLink>
+      <GrayDivider></GrayDivider>
     </div>
   );
 };
