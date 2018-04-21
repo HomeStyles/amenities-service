@@ -1,6 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
 import {Header, BlueLink, GrayDivider, Text} from '../style.js';
+import Fork from 'react-icons/lib/io/fork';
+import Wifi from 'react-icons/lib/md/wifi';
+import HotWater from 'react-icons/lib/ti/coffee';
 
 Modal.setAppElement('body');
 
@@ -9,7 +12,9 @@ const Amenities = (props) => {
     <div>
       <Text>
         <h4>Amenities</h4>
-          Kitchen, wifi, iron
+        <Fork />  Kitchen<br></br>
+        <Wifi />  Wifi<br></br>
+        <HotWater />  Hot Water<br></br>
       </Text>
       <br></br>
       <BlueLink onClick={props.openModal2()}>
