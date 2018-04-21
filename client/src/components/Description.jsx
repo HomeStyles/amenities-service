@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import Modal from 'react-modal';
-import {UppercaseText, Header, RoundPhoto, Text, BlueLink, Box, Stats} from '../style.js';
+import {UppercaseText, Header, RoundPhoto, Text, BlueLink, Box, Stats, GrayDivider} from '../style.js';
 
 Modal.setAppElement('body');
 
@@ -106,6 +106,7 @@ class Description extends React.Component {
         <BlueLink onClick={this.openModal1}>
           Contact host
         </BlueLink>
+        <GrayDivider></GrayDivider>
         <Modal isOpen={this.state.modal1IsOpen}>
           <button onClick={this.closeModal1}>close</button>
           <Header><h2>Contact {this.state.host.firstName}</h2></Header>
@@ -125,6 +126,7 @@ class Description extends React.Component {
         <BlueLink onClick={this.openModal2}>
           Show all 7 amenities
         </BlueLink>
+        <GrayDivider></GrayDivider>
         <Modal isOpen={this.state.modal2IsOpen}>
           <button onClick={this.closeModal2}>close</button>
           <Header><h2>Amenities</h2></Header>
@@ -143,12 +145,16 @@ class Description extends React.Component {
         <Text>
           <h4>Sleeping arrangements</h4>
           <Box>1 double bed, 1 sofa bed</Box>
+        </Text>
+        <GrayDivider></GrayDivider>
+        <Text>
           <h4>House Rules</h4>Not suitable for pets<br></br>No parties or events<br></br>Check-in is anytime after {this.state.home.checkIn}<br></br>Check out by {this.state.home.checkOut}
         </Text>
         <br></br>
         <BlueLink>
           Read all Rules ^
         </BlueLink>
+        <GrayDivider></GrayDivider>
       </div>
     );
   }

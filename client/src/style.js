@@ -34,8 +34,7 @@ export const BlueLink = Text.extend`
 
 export const Box = styled.div`
   float: left;
-  padding: 5px 10px 5px 10px;
-  margin-left: 5px;
+  padding: 10px 10px 10px 10px;
   margin-top: 10px;
   margin-bottom: 30px;
   margin-right: 1000px;
@@ -49,11 +48,18 @@ export const Stats = Box.extend`
   margin-bottom: 10px;
 `;
 
-export const RoundPhoto = styled.div`
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  width: 50%;
-  height: 50%;
+export const RoundPhoto = styled.p`
+  width: 48px;
+  height: auto;
+  padding: 10px 10px 10px 10px;
   border-radius: 50%;
+  background-size: contain;
+`;
+
+export const GrayDivider = styled.hr`
+  color: #c4c4c4;
+  border-bottom: 1px;
+  width: 50%;
+  float: left;
+  margin-right: 1000px;
 `;
