@@ -19,12 +19,18 @@ export const Header = styled.div`
   line-height: 22px;
   text-transform: none;
   color: #484848;
+  width: 75%;
 `;
 
 export const Text = Header.extend`
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 1.43;
+  width: 50%;
+`;
+
+export const BoxText = Text.extend`
+  width: 100%;
 `;
 
 export const BlueLink = Text.extend`
@@ -34,12 +40,11 @@ export const BlueLink = Text.extend`
 
 export const Box = styled.div`
   float: left;
-  padding: 5px 10px 5px 10px;
-  margin-left: 5px;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  padding: 10px 10px 10px 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
   margin-right: 1000px;
-  width: 300px;
+  width: 275px;
   border: 1px solid #c4c4c4;
   border-radius: 2px;
 `;
@@ -50,10 +55,13 @@ export const Stats = Box.extend`
 `;
 
 export const RoundPhoto = styled.div`
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  float: right;
+`;
+
+export const GrayDivider = styled.hr`
+  color: #c4c4c4;
+  border-bottom: 1px;
   width: 50%;
-  height: 50%;
-  border-radius: 50%;
+  float: left;
+  margin-right: 1000px;
 `;

@@ -3,7 +3,9 @@ let SRC_DIR = path.join(__dirname, '/client/src');
 let DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
-  entry: `${SRC_DIR}/components/index.jsx`,
+  entry: [
+    `${SRC_DIR}/components/index.jsx`,
+  ],
   output: {
     filename: 'bundle.js',
     path: DIST_DIR,
@@ -17,7 +19,7 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
-      }
+      }, 
     ]
   }, 
 };
