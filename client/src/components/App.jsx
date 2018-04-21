@@ -11,8 +11,8 @@ import Heading from './Heading.jsx';
 import Description from './Description.jsx';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       homeId: 1,
@@ -20,9 +20,8 @@ class App extends React.Component {
       amenities: {},
       rooms: {},
       host: {},
+      modalIsOpen: false
     };
-
-    this.createHome = this.createHome.bind(this);
   }
 
   fetchHomes(id) {
@@ -40,20 +39,13 @@ class App extends React.Component {
         throw err;
       });
   }
-  
-  createHome() {
-    axios.post('http://127.0.0.1:3002/amenities/form', {
-      home: {},
-      amenities: {},
-      rooms: {},
-      host: {},
-    })
-      .then((response) => {
-        console.log('this is the response', response);
-      })
-      .catch((error) => {
-        throw err;
-      });
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
   }
 
   componentDidMount() {
@@ -87,7 +79,12 @@ class App extends React.Component {
             <li>What do you love about this listing? Mention it!</li>
           </Text>
         </Modal>
-        <Amenities amenities={this.state.amenities} />
+        <Amenities 
+          amenities={this.state.amenities} 
+          isOpen={this.state.modalIsOpen}
+          openModal={() => this.openModal.bind(this)} 
+          closeModal={() => this.closeModal.bind(this)} 
+        />
         <Sleeping />
         <GrayDivider></GrayDivider>
         <Rules rules={this.state.home} />
