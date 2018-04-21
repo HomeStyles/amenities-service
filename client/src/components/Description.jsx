@@ -4,12 +4,13 @@ import styled from 'styled-components';
 import axios from 'axios';
 import Modal from 'react-modal';
 import {UppercaseText, Header, RoundPhoto, Text, BlueLink, Box, Stats, GrayDivider} from '../style.js';
+import Rules from './Rules.jsx';
 
 Modal.setAppElement('body');
 
 class Description extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       homeId: 1,
@@ -147,13 +148,7 @@ class Description extends React.Component {
           <Box>1 double bed, 1 sofa bed</Box>
         </Text>
         <GrayDivider></GrayDivider>
-        <Text>
-          <h4>House Rules</h4>Not suitable for pets<br></br>No parties or events<br></br>Check-in is anytime after {this.state.home.checkIn}<br></br>Check out by {this.state.home.checkOut}
-        </Text>
-        <br></br>
-        <BlueLink>
-          Read all Rules ^
-        </BlueLink>
+        <Rules rules={this.state.home} />
         <GrayDivider></GrayDivider>
       </div>
     );
