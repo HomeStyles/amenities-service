@@ -69,7 +69,7 @@ class App extends React.Component {
           closeModal1={() => this.closeModal1.bind(this)} 
         />
         <Amenities 
-          amenities={this.state.amenities} 
+          amenities={this.state.amenities}
           isOpen2={this.state.modal2IsOpen}
           openModal2={() => this.openModal2.bind(this)} 
           closeModal2={() => this.closeModal2.bind(this)} 

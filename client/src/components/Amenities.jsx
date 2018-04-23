@@ -8,32 +8,51 @@ import HotWater from 'react-icons/lib/ti/coffee';
 Modal.setAppElement('body');
 
 const Amenities = (props) => {
+  const amenities = Object.entries(props.amenities);
+  let amenitiesOffered = [];
+  amenities.forEach((value) => { 
+    if (value[1] === false) {
+      return;
+    }
+    amenitiesOffered.push(value[0].charAt(0).toUpperCase() + value[0].slice(1));
+  });
+  const filteredList = amenitiesOffered.map((value) => 
+    <Text key={value.toString()}>{value}</Text>
+  );
+
+  let amenitiesNotOffered = [];
+  amenities.forEach((value) => { 
+    if (value[1] === true) {
+      return;
+    }
+    let amenity = value[0].split(/(?=[A-Z])/).join(' ');
+    amenity = amenity.charAt(0).toUpperCase() + amenity.slice(1);
+    amenitiesNotOffered.push(amenity);
+  });
+  const notOffered = amenitiesNotOffered.map((value) => 
+    <Text key={value.toString()}>{value}</Text>
+  );
+
   return (  
     <div>
       <Text>
         <h4>Amenities</h4>
-        <Fork />  Kitchen<br></br>
-        <Wifi />  Wifi<br></br>
-        <HotWater />  Hot Water<br></br>
+        {filteredList}
       </Text>
       <br></br>
       <BlueLink onClick={props.openModal2()}>
-          Show all 7 amenities
+          Show all {filteredList.length} amenities
       </BlueLink>
       <GrayDivider></GrayDivider>
       <Modal isOpen={props.isOpen2}>
         <button onClick={props.closeModal2()}>close</button>
         <Header><h2>Amenities</h2></Header>
         <Text>
-          <strong>Basic</strong>
-          <ul>Wifi</ul>
-          <ul>Iron</ul>
-          <ul>Washer</ul>
-          <ul>Air conditioning</ul>
-          <strong>Facilities</strong><br></br>
-          <strong>Dining</strong><br></br>
-          <strong>Guest access</strong><br></br>
-          <strong>Not included</strong><br></br>
+          <strong>Included</strong>
+          {filteredList}
+          <br></br><br></br>
+          <strong>Not included</strong>
+          {notOffered}
         </Text>
       </Modal>
     </div>
