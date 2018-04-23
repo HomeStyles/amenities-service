@@ -17,7 +17,9 @@ class App extends React.Component {
       rooms: {},
       host: {},
       modal1IsOpen: false,
-      modal2IsOpen: false
+      modal2IsOpen: false, 
+      expanded: false, 
+      truncated: false
     };
   }
 
@@ -52,6 +54,22 @@ class App extends React.Component {
     this.setState({modal2IsOpen: false});
   }
 
+  handleTruncate(truncated) {
+    if (this.state.truncated !== truncated) {
+      this.setState({
+        truncated
+      });
+    }
+  }
+
+  toggleExpandedText(event) {
+    event.preventDefault();
+
+    this.setState({
+      expanded: !this.state.expanded
+    });
+  }
+
   componentDidMount() {
     let app = this;
     this.fetchHomes(app.state.homeId);
@@ -67,6 +85,10 @@ class App extends React.Component {
           isOpen1={this.state.modal1IsOpen}
           openModal1={() => this.openModal1.bind(this)} 
           closeModal1={() => this.closeModal1.bind(this)} 
+          expanded={this.state.expanded}
+          truncated={this.state.truncated}
+          toggleText={(e) => this.toggleExpandedText.bind(this)}
+          handleTruncate={() => this.handleTruncate.bind(this)}
         />
         <Amenities 
           amenities={this.state.amenities}
@@ -75,7 +97,13 @@ class App extends React.Component {
           closeModal2={() => this.closeModal2.bind(this)} 
         />
         <Sleeping />
-        <Rules rules={this.state.home} />
+        <Rules 
+          rules={this.state.home} 
+          expanded={this.state.expanded}
+          truncated={this.state.truncated}
+          toggleText={(e) => this.toggleExpandedText.bind(this)}
+          handleTruncate={() => this.handleTruncate.bind(this)}
+        />
       </div>
     );
   }

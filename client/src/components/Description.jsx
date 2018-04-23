@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import Truncate from 'react-truncate';
 import {Header, BlueLink, GrayDivider, Text} from '../style.js';
 
 Modal.setAppElement('body');
@@ -8,10 +9,17 @@ const Description = (props) => {
   return (  
     <div>
       <Text>
-        {props.home.description}<br></br>
+        <Truncate 
+          lines={!props.expanded && 7} 
+          ellipsis={(<BlueLink onClick={props.toggleText()}><br></br>{props.more}</BlueLink>)}
+          onTruncate={props.handleTruncate()}
+        >
+          {props.home.description}<br></br>
+        </Truncate>
+        {!props.truncated && props.expanded && (
+          <BlueLink onClick={props.toggleText()}>{props.less}</BlueLink>
+        )}
       </Text>
-      <br></br>
-      <BlueLink>Read more about the space ^</BlueLink>
       <br></br>
       <br></br>
       <BlueLink onClick={props.openModal1()}>
@@ -31,6 +39,12 @@ const Description = (props) => {
       </Modal>
     </div>
   );
+};
+
+Description.defaultProps = {
+  lines: 7,
+  more: 'Read more about the space ^',
+  less: 'Hide ^'
 };
 
 export default Description;
