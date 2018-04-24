@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import {Header, BlueLink, GrayDivider, Text} from '../style.js';
+import {Header, BlueLink, GrayDivider, Text, BoldText, List} from '../style.js';
 import Fork from 'react-icons/lib/io/fork';
 import Wifi from 'react-icons/lib/md/wifi';
 import HotWater from 'react-icons/lib/ti/coffee';
@@ -35,25 +35,19 @@ const Amenities = (props) => {
 
   return (  
     <div>
-      <Text>
-        <h4>Amenities</h4>
-        {filteredList}
-      </Text>
-      <br></br>
+      <BoldText>Amenities</BoldText>
+      <Text>{filteredList}</Text>
       <BlueLink onClick={props.openModal2()}>
           Show all {filteredList.length} amenities
       </BlueLink>
       <GrayDivider></GrayDivider>
       <Modal isOpen={props.isOpen2}>
         <button onClick={props.closeModal2()}>close</button>
-        <Header><h2>Amenities</h2></Header>
-        <Text>
-          <strong>Included</strong>
-          {filteredList}
-          <br></br><br></br>
-          <strong>Not included</strong>
-          {notOffered}
-        </Text>
+        <Header>Amenities</Header>
+        <BoldText>Included</BoldText>
+        <List>{filteredList}</List>
+        <BoldText>Not included</BoldText>
+        <List>{notOffered}</List>
       </Modal>
     </div>
   );

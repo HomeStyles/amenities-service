@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import queryString from 'query-string';
 import Rules from './Rules.jsx';
 import Sleeping from './Sleeping.jsx';
 import Amenities from './Amenities.jsx';
 import Heading from './Heading.jsx';
 import Description from './Description.jsx';
 
-class App extends React.Component {
+class DescriptionApp extends React.Component {
   constructor() {
     super();
 
@@ -71,8 +72,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let app = this;
-    this.fetchHomes(app.state.homeId);
+    let parsed = queryString.parse(location.search);
+    let currentId = Number(parsed.id);
+    if (currentId) {
+      this.fetchHomes(currentId);
+      this.setState({homeId: currentId});
+    } else {
+      this.fetchHomes(this.state.homeId);
+    }
   }
 
   render() {
@@ -109,4 +116,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default DescriptionApp;

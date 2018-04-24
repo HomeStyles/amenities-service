@@ -1,23 +1,25 @@
 import React from 'react';
 import Truncate from 'react-truncate';
-import {Text, BlueLink, GrayDivider} from '../style.js';
+import {Text, BlueLink, GrayDivider, BoldText, List} from '../style.js';
 
 const Rules = (props) => {
   return (  
     <div>
+      <BoldText>House Rules</BoldText>
       <Text>
-        <h4>House Rules</h4>
-        <Truncate 
+        {/* <Truncate 
           lines={!props.expanded && 2} 
-          ellipsis={(<BlueLink onClick={props.toggleText()}><br></br>{props.more}</BlueLink>)}
+          ellipsis={(<BlueLink onClick={props.toggleText()}>{props.more}</BlueLink>)}
           onTruncate={props.handleTruncate()}
         >
-          Not suitable for pets<br></br>No parties or events<br></br>Check-in is anytime after {props.rules.checkIn}<br></br>Check out by {props.rules.checkOut}
-          <br></br>
-        </Truncate>
+          {/* <List>Not suitable for pets</List><br></br>
+          <List>No parties or events</List><br></br>
+          <List>Check-in is anytime after {props.rules.checkIn}</List><br></br>
+          <List>Check out by {props.rules.checkOut}</List><br></br> */}
+        {/* </Truncate>
         {!props.truncated && props.expanded && (
           <BlueLink onClick={props.toggleText()}>{props.less}</BlueLink>
-        )}
+        )} */}
       </Text>
       <GrayDivider></GrayDivider>
     </div>

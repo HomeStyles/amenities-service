@@ -4,7 +4,7 @@ export const UppercaseText = styled.div`
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 12px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0.2px;
   line-height: 16px;
   text-transform: uppercase;
@@ -13,20 +13,31 @@ export const UppercaseText = styled.div`
 
 export const Header = styled.div`
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-  font-size: 17px;
-  font-weight: 300;
+  font-size: 24px;
+  font-weight: bold;
   letter-spacing: 0.2px;
   line-height: 22px;
   text-transform: none;
   color: #484848;
-  width: 75%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 export const Text = Header.extend`
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 300;
   font-size: 14px;
   line-height: 1.43;
-  width: 50%;
+  width: 90%;
+`;
+
+export const PaddedText = Text.extend`
+  padding-bottom: 20px;
+`;
+
+export const BoldText = Text.extend`
+  font-weight: bold;
+  padding-bottom: 5px;
 `;
 
 export const BoxText = Text.extend`
@@ -38,13 +49,20 @@ export const BlueLink = Text.extend`
   color: #008489;
 `;
 
+export const List = styled.div`
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.43;
+`;
+
 export const Box = styled.div`
   float: left;
   padding: 10px 10px 10px 10px;
   margin-top: 5px;
   margin-bottom: 20px;
   margin-right: 1000px;
-  width: 275px;
+  width: 450px;
   border: 1px solid #c4c4c4;
   border-radius: 2px;
 `;
@@ -61,7 +79,8 @@ export const RoundPhoto = styled.div`
 export const GrayDivider = styled.hr`
   color: #c4c4c4;
   border-bottom: 1px;
-  width: 50%;
+  width: 90%;
   float: left;
   margin-right: 1000px;
+  margin-bottom: 20px;
 `;
