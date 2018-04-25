@@ -9,20 +9,20 @@ import Light from 'react-icons/lib/ti/lightbulb';
 const imageStyle = {
   borderRadius: '50%',
   width: '45px', 
-  zIndex: '1', 
   textAlign: 'center',
   marginRight: '25px',
+  float: 'top'
 };
 
 const Heading = (props) => {
   return (  
     <div>
       <UppercaseText>ENTIRE APARTMENT</UppercaseText>
-      <Header>{props.home.homeName}</Header>
       <RoundPhoto><img style={imageStyle} src={props.host.image}/>
         <Text>{props.host.firstName}</Text>
       </RoundPhoto>
-      <PaddedText>{props.home.location}</PaddedText>
+      <Header>{props.home.homeName}</Header>
+      <Text>{props.home.location}</Text>
       <Stats>
         <BoxText>
           <People />  2 guests,  <Room />  {props.rooms.totalBedrooms} bedrooms,  <Bed />  {props.rooms.totalBeds} beds,  <Tub />  {props.rooms.totalBaths} bath

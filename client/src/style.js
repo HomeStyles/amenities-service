@@ -21,6 +21,7 @@ export const Header = styled.div`
   color: #484848;
   padding-top: 10px;
   padding-bottom: 10px;
+  width: 90%;
 `;
 
 export const Text = Header.extend`
@@ -28,7 +29,6 @@ export const Text = Header.extend`
   font-weight: 300;
   font-size: 14px;
   line-height: 1.43;
-  width: 90%;
 `;
 
 export const HiddenText = Text.extend`
@@ -37,7 +37,7 @@ export const HiddenText = Text.extend`
 `;
 
 export const PaddedText = Text.extend`
-  padding-bottom: 20px;
+  padding-bottom: 10x;
 `;
 
 export const BoldText = Text.extend`
@@ -68,7 +68,7 @@ export const Box = styled.div`
   margin-top: 5px;
   margin-bottom: 20px;
   margin-right: 1000px;
-  width: 450px;
+  width: 75%;
   border: 1px solid #c4c4c4;
   border-radius: 2px;
 `;
