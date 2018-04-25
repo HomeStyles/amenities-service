@@ -7,6 +7,10 @@ import HotWater from 'react-icons/lib/ti/coffee';
 
 Modal.setAppElement('body');
 
+const spacing = {
+  lineHeight: '2px',
+};
+
 const Amenities = (props) => {
   const amenities = Object.entries(props.amenities);
   let amenitiesOffered = [];
@@ -14,10 +18,12 @@ const Amenities = (props) => {
     if (value[1] === false) {
       return;
     }
-    amenitiesOffered.push(value[0].charAt(0).toUpperCase() + value[0].slice(1));
+    let amenity = value[0].split(/(?=[A-Z])/).join(' ');
+    amenity = amenity.charAt(0).toUpperCase() + amenity.slice(1);
+    amenitiesOffered.push(amenity);
   });
   const filteredList = amenitiesOffered.map((value) => 
-    <Text key={value.toString()}>{value}</Text>
+    <Text key={value.toString()} style={spacing}>{value}</Text>
   );
 
   let amenitiesNotOffered = [];
@@ -30,13 +36,13 @@ const Amenities = (props) => {
     amenitiesNotOffered.push(amenity);
   });
   const notOffered = amenitiesNotOffered.map((value) => 
-    <Text key={value.toString()}>{value}</Text>
+    <Text key={value.toString()} style={spacing}>{value}</Text>
   );
 
   return (  
     <div>
-      <Text>
-        <BoldText>Amenities</BoldText>
+      <BoldText>Amenities</BoldText>
+      <Text style={spacing}>
         {filteredList}
       </Text>
       <BlueLink onClick={props.openModal2()}>
@@ -47,9 +53,9 @@ const Amenities = (props) => {
         <button onClick={props.closeModal2()}>close</button>
         <Header>Amenities</Header>
         <BoldText>Included</BoldText>
-        <List>{filteredList}</List>
+        <List style={spacing}>{filteredList}</List>
         <BoldText>Not included</BoldText>
-        <List>{notOffered}</List>
+        <List style={spacing}>{notOffered}</List>
       </Modal>
     </div>
   );

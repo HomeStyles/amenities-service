@@ -16,6 +16,7 @@ const spacing = {
 
 const Rules = (props) => {
   let rulesStyle = props.hide ? hiddenStyle : fullStyle;
+  let linkText = props.hide ? props.more : props.less;
 
   return (  
     <div>
@@ -26,14 +27,13 @@ const Rules = (props) => {
         <List style={spacing}>Check-in is anytime after {props.rules.checkIn}</List><br></br>
         <List style={spacing}>Check out by {props.rules.checkOut}</List><br></br>
       </HiddenText>
-      <BlueLink onClick={props.showRules()}>{props.more}</BlueLink>
+      <BlueLink onClick={props.showRules()}>{linkText}</BlueLink>
       <GrayDivider></GrayDivider>
     </div>
   );
 };
 
 Rules.defaultProps = {
-  lines: 2,
   more: 'Read all rules ^',
   less: 'Hide ^'
 };

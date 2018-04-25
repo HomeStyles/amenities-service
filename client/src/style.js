@@ -59,7 +59,7 @@ export const List = styled.div`
   font-weight: 300;
   font-size: 14px;
   line-height: 1.43;
-  list-style: none;
+  margin-left: 10px;
 `;
 
 export const Box = styled.div`
@@ -71,6 +71,11 @@ export const Box = styled.div`
   width: 450px;
   border: 1px solid #c4c4c4;
   border-radius: 2px;
+`;
+
+export const InlineBox = Box.extend`
+  border: none;
+  display: inline-block;
 `;
 
 export const Stats = Box.extend`

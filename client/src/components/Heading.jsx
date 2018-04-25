@@ -11,6 +11,7 @@ const imageStyle = {
   width: '45px', 
   zIndex: '1', 
   textAlign: 'center',
+  marginRight: '25px',
 };
 
 const Heading = (props) => {
@@ -19,6 +20,7 @@ const Heading = (props) => {
       <UppercaseText>ENTIRE APARTMENT</UppercaseText>
       <Header>{props.home.homeName}</Header>
       <RoundPhoto><img style={imageStyle} src={props.host.image}/>
+        <Text>{props.host.firstName}</Text>
       </RoundPhoto>
       <PaddedText>{props.home.location}</PaddedText>
       <Stats>

@@ -15,11 +15,12 @@ const fullStyle = {
 
 const Description = (props) => {
   let paragraphStyle = props.hide ? textStyle : fullStyle;
+  let linkText = props.hide ? props.more : props.less;
 
   return (  
     <div>
       <HiddenText style={paragraphStyle}>{props.home.description}</HiddenText>
-      <BlueLink onClick={props.toggleText()}>{props.more}</BlueLink>
+      <BlueLink onClick={props.toggleText()}>{linkText}</BlueLink>
       <BlueLink onClick={props.openModal1()}>
           Contact host
       </BlueLink>
@@ -40,7 +41,6 @@ const Description = (props) => {
 };
 
 Description.defaultProps = {
-  lines: 7,
   more: 'Read more about the space ^',
   less: 'Hide ^'
 };

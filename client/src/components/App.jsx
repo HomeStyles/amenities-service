@@ -57,12 +57,12 @@ class DescriptionApp extends React.Component {
 
   showText(event) {
     event.preventDefault();
-    this.setState({hide: false});
+    this.setState({hide: !this.state.hide});
   }
 
   showRules(event) {
     event.preventDefault();
-    this.setState({rulesHidden: false});
+    this.setState({rulesHidden: !this.state.rulesHidden});
   }
 
   componentDidMount() {
