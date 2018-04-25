@@ -52,6 +52,10 @@ export const BoxText = Text.extend`
 export const BlueLink = Text.extend`
   font-weight: 400;
   color: #008489;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const List = styled.div`
