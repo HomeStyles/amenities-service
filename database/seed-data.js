@@ -10,7 +10,7 @@ for (let i = 1; i < 101; i++) {
     homeName: faker.lorem.sentence(),
     description: faker.lorem.paragraphs(),
     location: faker.address.city(),
-    viewsThisWeek: faker.random.number(),
+    viewsThisWeek: (Math.floor(Math.random() * (500 - 200)) + 200),
     petsAllowed: faker.random.boolean(),
     checkOut: (Math.floor(Math.random() * (12 - 10)) + 10) + 'AM',
     checkIn: (Math.floor(Math.random() * (3 - 1)) + 1) + 'PM',

@@ -18,9 +18,9 @@ class DescriptionApp extends React.Component {
       rooms: {},
       host: {},
       modal1IsOpen: false,
-      modal2IsOpen: false, 
-      expanded: false, 
-      truncated: false
+      modal2IsOpen: false,  
+      hide: true, 
+      rulesHidden: true
     };
   }
 
@@ -55,20 +55,14 @@ class DescriptionApp extends React.Component {
     this.setState({modal2IsOpen: false});
   }
 
-  handleTruncate(truncated) {
-    if (this.state.truncated !== truncated) {
-      this.setState({
-        truncated
-      });
-    }
+  showText(event) {
+    event.preventDefault();
+    this.setState({hide: false});
   }
 
-  toggleExpandedText(event) {
+  showRules(event) {
     event.preventDefault();
-
-    this.setState({
-      expanded: !this.state.expanded
-    });
+    this.setState({rulesHidden: false});
   }
 
   componentDidMount() {
@@ -92,10 +86,8 @@ class DescriptionApp extends React.Component {
           isOpen1={this.state.modal1IsOpen}
           openModal1={() => this.openModal1.bind(this)} 
           closeModal1={() => this.closeModal1.bind(this)} 
-          expanded={this.state.expanded}
-          truncated={this.state.truncated}
-          toggleText={(e) => this.toggleExpandedText.bind(this)}
-          handleTruncate={() => this.handleTruncate.bind(this)}
+          hide={this.state.hide}
+          toggleText={(e) => this.showText.bind(this)}
         />
         <Amenities 
           amenities={this.state.amenities}
@@ -106,10 +98,8 @@ class DescriptionApp extends React.Component {
         <Sleeping />
         <Rules 
           rules={this.state.home} 
-          expanded={this.state.expanded}
-          truncated={this.state.truncated}
-          toggleText={(e) => this.toggleExpandedText.bind(this)}
-          handleTruncate={() => this.handleTruncate.bind(this)}
+          hide={this.state.rulesHidden}
+          showRules={(e) => this.showRules.bind(this)}
         />
       </div>
     );

@@ -1,25 +1,25 @@
 import React from 'react';
 import Modal from 'react-modal';
-import Truncate from 'react-truncate';
-import {Header, BlueLink, GrayDivider, Text, PaddedText, List} from '../style.js';
+import {Header, BlueLink, GrayDivider, Text, PaddedText, List, HiddenText} from '../style.js';
 
 Modal.setAppElement('body');
 
+const textStyle = {
+  height: '7em',
+  overflow: 'hidden'
+};
+
+const fullStyle = {
+  height: '20em'
+};
+
 const Description = (props) => {
+  let paragraphStyle = props.hide ? textStyle : fullStyle;
+
   return (  
     <div>
-      <Text>
-        {/* <Truncate 
-          lines={!props.expanded && 7} 
-          ellipsis={(<BlueLink onClick={props.toggleText()}>{props.more}</BlueLink>)}
-          onTruncate={props.handleTruncate()}
-        >
-          {props.home.description}
-        </Truncate>
-        {!props.truncated && props.expanded && (
-          <BlueLink onClick={props.toggleText()}>{props.less}</BlueLink>
-        )} */}
-      </Text>
+      <HiddenText style={paragraphStyle}>{props.home.description}</HiddenText>
+      <BlueLink onClick={props.toggleText()}>{props.more}</BlueLink>
       <BlueLink onClick={props.openModal1()}>
           Contact host
       </BlueLink>

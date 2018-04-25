@@ -31,6 +31,11 @@ export const Text = Header.extend`
   width: 90%;
 `;
 
+export const HiddenText = Text.extend`
+  height: 7em;
+  overflow: hidden;
+`;
+
 export const PaddedText = Text.extend`
   padding-bottom: 20px;
 `;
@@ -54,6 +59,7 @@ export const List = styled.div`
   font-weight: 300;
   font-size: 14px;
   line-height: 1.43;
+  list-style: none;
 `;
 
 export const Box = styled.div`

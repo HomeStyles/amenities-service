@@ -35,8 +35,10 @@ const Amenities = (props) => {
 
   return (  
     <div>
-      <BoldText>Amenities</BoldText>
-      <Text>{filteredList}</Text>
+      <Text>
+        <BoldText>Amenities</BoldText>
+        {filteredList}
+      </Text>
       <BlueLink onClick={props.openModal2()}>
           Show all {filteredList.length} amenities
       </BlueLink>
