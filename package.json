@@ -16,7 +16,8 @@
     "start": "nodemon server/server.js",
     "test": "jest --coverage --watch",
     "dev:react": "webpack -d --watch",
-    "dev": "webpack-dev-server --hot --inline"
+    "dev": "webpack-dev-server --hot --inline",
+    "mongodb": "node database/seed-data.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -25,6 +26,10 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
     "faker": "^4.1.0",
+    "grunt": "^1.0.2",
+    "grunt-aws": "^0.6.2",
+    "grunt-css": "^0.5.4",
+    "grunt-webpack": "^3.1.1",
     "jest": "^22.4.3",
     "mongod": "^2.0.0",
     "mongoose": "^5.0.15",
