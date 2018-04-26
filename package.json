@@ -13,11 +13,9 @@
     "setupTestFrameworkScriptFile": "<rootDir>/client/setupTests.js"
   },
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "node server/server.js",
     "test": "jest --coverage --watch",
-    "dev:react": "webpack -d --watch",
-    "dev": "webpack-dev-server --hot --inline",
-    "mongodb": "node database/seed-data.js"
+    "dev:react": "webpack -d --watch"
   },
   "dependencies": {
     "axios": "^0.18.0",

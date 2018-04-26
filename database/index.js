@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/airbnb');
+mongoose.connect('mongodb://172.17.0.3/airbnb')
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const homeSchema = new mongoose.Schema({
   homeId: Number, 
