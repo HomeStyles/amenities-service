@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://172.17.0.3/airbnb')
+mongoose.connect('mongodb://172.17.0.2/airbnb')
   .then((result) => {
     console.log(result);
   })

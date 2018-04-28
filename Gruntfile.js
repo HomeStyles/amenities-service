@@ -31,7 +31,7 @@ module.exports = function(grunt) {
         cwd: './client/dist',
         src: '**'
       }
-    }
+    }, 
   });
 
   grunt.loadNpmTasks('grunt-webpack');

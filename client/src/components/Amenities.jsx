@@ -9,6 +9,16 @@ Modal.setAppElement('body');
 
 const spacing = {
   lineHeight: '2px',
+  paddingBottom: '5px'
+};
+
+const roundButton = {
+  borderRadius: '50%'
+};
+
+const center = {
+  textAlign: 'center', 
+  marginTop: '2.5px'
 };
 
 const Amenities = (props) => {
@@ -23,7 +33,7 @@ const Amenities = (props) => {
     amenitiesOffered.push(amenity);
   });
   const filteredList = amenitiesOffered.map((value) => 
-    <Text key={value.toString()} style={spacing}>{value}</Text>
+    <Text key={value.toString()}>{value}</Text>
   );
 
   let amenitiesNotOffered = [];
@@ -36,21 +46,21 @@ const Amenities = (props) => {
     amenitiesNotOffered.push(amenity);
   });
   const notOffered = amenitiesNotOffered.map((value) => 
-    <Text key={value.toString()} style={spacing}>{value}</Text>
+    <Text key={value.toString()}>{value}</Text>
   );
 
   return (  
     <div>
       <BoldText>Amenities</BoldText>
-      <Text style={spacing}>
+      <List style={spacing}>
         {filteredList}
-      </Text>
+      </List>
       <BlueLink onClick={props.openModal2()}>
           Show all {filteredList.length} amenities
       </BlueLink>
       <GrayDivider></GrayDivider>
       <Modal isOpen={props.isOpen2}>
-        <button onClick={props.closeModal2()}>close</button>
+        <button onClick={props.closeModal2()} style={roundButton}><Text style={center}>X</Text></button>
         <Header>Amenities</Header>
         <BoldText>Included</BoldText>
         <List style={spacing}>{filteredList}</List>

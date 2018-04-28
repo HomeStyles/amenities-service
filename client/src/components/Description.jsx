@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import {Header, BlueLink, GrayDivider, Text, PaddedText, List, HiddenText} from '../style.js';
+import {LargeHeader, BlueLink, GrayDivider, Text, List, HiddenText, LargeText} from '../style.js';
 
 Modal.setAppElement('body');
 
@@ -10,7 +10,16 @@ const textStyle = {
 };
 
 const fullStyle = {
-  height: '20em'
+  height: '14em'
+};
+
+const roundButton = {
+  borderRadius: '50%'
+};
+
+const center = {
+  textAlign: 'center', 
+  marginTop: '2.5px'
 };
 
 const Description = (props) => {
@@ -26,15 +35,15 @@ const Description = (props) => {
       </BlueLink>
       <GrayDivider></GrayDivider>
       <Modal isOpen={props.isOpen1}>
-        <button onClick={props.closeModal1()}>close</button>
-        <Header>Contact {props.host.firstName}</Header>
-        <PaddedText>Once you send a message, {props.host.firstName} can invite you to book their home.</PaddedText>
-        <PaddedText>Make sure you share the following:</PaddedText>
-        <Text>
+        <button onClick={props.closeModal1()} style={roundButton}><Text style={center}>X</Text></button>
+        <LargeHeader>Contact {props.host.firstName}</LargeHeader>
+        <LargeText>Once you send a message, {props.host.firstName} can invite you to book their home.</LargeText>
+        <LargeText>Make sure you share the following:</LargeText>
+        <LargeText>
           <List>Tell {props.host.firstName} a little about yourself</List>
           <List>What brings you to {props.home.location}? Who’s joining you?</List>
           <List>What do you love about this listing? Mention it!</List>
-        </Text>
+        </LargeText>
       </Modal>
     </div>
   );

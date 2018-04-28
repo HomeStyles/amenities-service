@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import queryString from 'query-string';
+import {AppContainer} from '../style.js';
 import Rules from './Rules.jsx';
 import Sleeping from './Sleeping.jsx';
 import Amenities from './Amenities.jsx';
@@ -25,7 +26,7 @@ class DescriptionApp extends React.Component {
   }
 
   fetchHomes(id) {
-    axios.get(`http://127.0.0.1:3002/amenities/${id}`)
+    axios.get(`http://ec2-54-153-33-219.us-west-1.compute.amazonaws.com/amenities/${id}`)
       .then((response) => {
         this.setState({
           home: response.data,
@@ -78,7 +79,7 @@ class DescriptionApp extends React.Component {
 
   render() {
     return (
-      <div>
+      <AppContainer>
         <Heading home={this.state.home} host={this.state.host} rooms={this.state.rooms} />
         <Description
           home={this.state.home} 
@@ -101,7 +102,7 @@ class DescriptionApp extends React.Component {
           hide={this.state.rulesHidden}
           showRules={(e) => this.showRules.bind(this)}
         />
-      </div>
+      </AppContainer>
     );
   }
 }

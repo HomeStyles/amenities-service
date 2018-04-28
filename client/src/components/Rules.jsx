@@ -2,12 +2,14 @@ import React from 'react';
 import {Text, BlueLink, GrayDivider, BoldText, List, HiddenText} from '../style.js';
 
 const hiddenStyle = {
-  height: '1em',
+  height: '2em',
+  paddingTop: '5px',
   overflow: 'hidden'
 };
 
 const fullStyle = {
-  height: '7em'
+  paddingTop: '5px',
+  height: '6em'
 };
 
 const spacing = {

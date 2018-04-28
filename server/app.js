@@ -4,7 +4,7 @@ const cors = require('cors');
 const {Home} = require('../database/index');
 const app = express();
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(__dirname + '/../client'));
 
 app.use(cors());
 app.use(bodyParser.json());
