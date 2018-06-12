@@ -1,4 +1,4 @@
-# Description Module, Vacation Home Booking
+# Amenities Module, Vacation Home Booking
 
 This module includes the home description, house rules, and amenities for users who are trying to decide on a vacation rental. Go to https://github.com/HomeStyles/amenities-proxy to see all four modules combined on a proxy server.  
 
